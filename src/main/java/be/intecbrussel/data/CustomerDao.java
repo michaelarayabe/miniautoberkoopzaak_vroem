@@ -12,7 +12,7 @@ public interface CustomerDao {
     void updateCustomers(Customer customer);
     void deleteCustomers(Customer customer);
 
-    List<Customer> listAllCustomers();
-    List<Customer> listCustomersByCity(String city);
+    void listAllCustomers();
+    void listCustomersByCity(String city);
 
 }
