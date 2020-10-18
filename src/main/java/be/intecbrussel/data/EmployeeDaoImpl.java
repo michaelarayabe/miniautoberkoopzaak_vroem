@@ -18,6 +18,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
             entityManager = emf.createEntityManager();
 
             EntityTransaction entityTransaction = entityManager.getTransaction();
+            entityManager.find(Employee.class,employee.getEmployeeNumber());
 
             entityTransaction.begin();
 

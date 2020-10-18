@@ -2,7 +2,6 @@ package be.intecbrussel.testapps;
 
 import be.intecbrussel.data.EmployeeDao;
 import be.intecbrussel.data.EmployeeDaoImpl;
-import be.intecbrussel.entities.Employee;
 
 public class EmployeeApp {
 

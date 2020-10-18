@@ -2,7 +2,6 @@ package be.intecbrussel.testapps;
 
 import be.intecbrussel.data.CustomerDao;
 import be.intecbrussel.data.CustomerDaoImpl;
-import be.intecbrussel.entities.Customer;
 
 public class CustomerApp {
 

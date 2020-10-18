@@ -7,13 +7,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+
 
 public class CustomerDaoImpl implements CustomerDao {
 
     EntityManagerFactory emf = EntityManagerFactoryProvider.getInstance().getEmf();
+
     @Override
     public void createCustomers(Customer customer) {
 
@@ -163,7 +162,6 @@ public class CustomerDaoImpl implements CustomerDao {
     @Override
     public void listCustomersByCity(String city) {
         EntityManager entityManager = null;
-        List<String> customerList = new ArrayList<>();
 
         try{
             entityManager = emf.createEntityManager();
