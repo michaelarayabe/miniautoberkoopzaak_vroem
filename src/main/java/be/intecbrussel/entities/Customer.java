@@ -1,9 +1,15 @@
-package be.intecbrussel.model;
+package be.intecbrussel.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Objects;
 
+@Entity
+@Table(name = "customers")
 public class Customer {
 
+    @Id
     private int customerNumber;
     private String customerName;
     private String contactLastName;

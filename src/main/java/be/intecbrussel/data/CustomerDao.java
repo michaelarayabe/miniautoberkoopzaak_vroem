@@ -1,6 +1,6 @@
 package be.intecbrussel.data;
 
-import be.intecbrussel.model.Customer;
+import be.intecbrussel.entities.Customer;
 
 import java.util.List;
 

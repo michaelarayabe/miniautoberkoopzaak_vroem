@@ -1,26 +1,39 @@
-package be.intecbrussel.model;
+package be.intecbrussel.entities;
 
+import javax.persistence.*;
 import java.util.Objects;
 
+
+@Entity
+@Table(name="employees")
 public class Employee {
 
+    @Id
+   // @GeneratedValue(strategy = GenerationType.TABLE)
     private int employeeNumber;
     private String lastName;
     private String firstName;
     private String extension;
     private String email;
     private String jobTitle;
+    //@ManyToOne
+    private String officeCode;
+    //@ManyToOne
+    private Integer reportsTo;
+
 
     public Employee() {
     }
 
-    public Employee(int employeeNumber, String lastName, String firstName, String extension, String email, String jobTitle) {
+    public Employee(int employeeNumber, String lastName, String firstName, String extension, String email, String jobTitle, String officeCode, Integer reportsTo) {
         this.employeeNumber = employeeNumber;
         this.lastName = lastName;
         this.firstName = firstName;
         this.extension = extension;
         this.email = email;
         this.jobTitle = jobTitle;
+        this.officeCode = officeCode;
+        this.reportsTo = reportsTo;
     }
 
     public int getEmployeeNumber() {
@@ -71,6 +84,22 @@ public class Employee {
         this.jobTitle = jobTitle;
     }
 
+    public String getOfficeCode() {
+        return officeCode;
+    }
+
+    public void setOfficeCode(String officeCode) {
+        this.officeCode = officeCode;
+    }
+
+    public int getReportsTo() {
+        return reportsTo;
+    }
+
+    public void setReportsTo(Integer reportsTo) {
+        this.reportsTo = reportsTo;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -80,6 +109,8 @@ public class Employee {
                 ", extension='" + extension + '\'' +
                 ", email='" + email + '\'' +
                 ", jobTitle='" + jobTitle + '\'' +
+                ", officeCode='" + officeCode + '\'' +
+                ", reportsTo=" + reportsTo +
                 '}';
     }
 
@@ -93,11 +124,13 @@ public class Employee {
                 Objects.equals(firstName, employee.firstName) &&
                 Objects.equals(extension, employee.extension) &&
                 Objects.equals(email, employee.email) &&
-                Objects.equals(jobTitle, employee.jobTitle);
+                Objects.equals(jobTitle, employee.jobTitle) &&
+                Objects.equals(officeCode, employee.officeCode) &&
+                Objects.equals(reportsTo, employee.reportsTo);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(employeeNumber, lastName, firstName, extension, email, jobTitle);
+        return Objects.hash(employeeNumber, lastName, firstName, extension, email, jobTitle, officeCode, reportsTo);
     }
 }
