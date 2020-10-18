@@ -38,7 +38,7 @@ public class CustomerApp {
 
  */
 
-        //#################### Updating customer data ###################################
+        //#################### Deleting customer data ###################################
 /*
         Customer customer = customerDao.readCustomers(521);
         customerDao.deleteCustomers(customer);
