@@ -16,16 +16,18 @@ public class Employee {
     private String extension;
     private String email;
     private String jobTitle;
-    //@ManyToOne
-    private String officeCode;
-    //@ManyToOne
-    private Integer reportsTo;
+    @ManyToOne
+    @JoinColumn(name = "officeCode")
+    private Office officeCode;
+    @ManyToOne
+    @JoinColumn(name = "reportsTo")
+    private Employee reportsTo;
 
 
     public Employee() {
     }
 
-    public Employee(int employeeNumber, String lastName, String firstName, String extension, String email, String jobTitle, String officeCode, Integer reportsTo) {
+    public Employee(int employeeNumber, String lastName, String firstName, String extension, String email, String jobTitle, Office officeCode, Employee reportsTo) {
         this.employeeNumber = employeeNumber;
         this.lastName = lastName;
         this.firstName = firstName;
@@ -84,19 +86,19 @@ public class Employee {
         this.jobTitle = jobTitle;
     }
 
-    public String getOfficeCode() {
+    public Office getOfficeCode() {
         return officeCode;
     }
 
-    public void setOfficeCode(String officeCode) {
+    public void setOfficeCode(Office officeCode) {
         this.officeCode = officeCode;
     }
 
-    public int getReportsTo() {
+    public Employee getReportsTo() {
         return reportsTo;
     }
 
-    public void setReportsTo(Integer reportsTo) {
+    public void setReportsTo(Employee reportsTo) {
         this.reportsTo = reportsTo;
     }
 
@@ -109,7 +111,7 @@ public class Employee {
                 ", extension='" + extension + '\'' +
                 ", email='" + email + '\'' +
                 ", jobTitle='" + jobTitle + '\'' +
-                ", officeCode='" + officeCode + '\'' +
+                ", officeCode=" + officeCode +
                 ", reportsTo=" + reportsTo +
                 '}';
     }

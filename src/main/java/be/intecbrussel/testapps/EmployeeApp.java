@@ -2,17 +2,23 @@ package be.intecbrussel.testapps;
 
 import be.intecbrussel.data.EmployeeDao;
 import be.intecbrussel.data.EmployeeDaoImpl;
+import be.intecbrussel.entities.Employee;
+import be.intecbrussel.entities.Office;
 
 public class EmployeeApp {
 
     public static void main(String[] args) {
 
         EmployeeDao employeeDao = new EmployeeDaoImpl();
+        Office office = new Office();
+        office.setOfficeCode("1");
+
+
 
         //#################### Creating new employees ###################################
 
-        //Employee employee = new Employee(2121,"Araya","Michael","x1001","m@gmail.com","Software Engineer","1",1002);
-        //employeeDao.createEmployee(employee);
+        Employee employee = new Employee(2323,"Dav","Tom","x3001","mdfdf@gmail.com","Software Engineer",office, employeeDao.readEmployee(1002));
+        employeeDao.createEmployee(employee);
 
         //#################### Reading employees from employees table ###################################
 
@@ -58,7 +64,7 @@ public class EmployeeApp {
 
         //#################### List employees by job title ###################################
 
-        employeeDao.listEmployeesByJobTitle("Sales Rep");
+        //employeeDao.listEmployeesByJobTitle("Sales Rep");
 
 
     }
