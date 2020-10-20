@@ -68,9 +68,10 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
             entityTransaction.begin();
 
-            entityManager.persist(employee);
+            entityManager.merge(employee);
 
             entityTransaction.commit();
+            System.out.println("updated");
 
 
 
@@ -96,6 +97,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
             transaction.begin();
             entityManager.remove(employee1);
             transaction.commit();
+            System.out.println("Employee is deleted");
 
 
         }catch (Exception e){

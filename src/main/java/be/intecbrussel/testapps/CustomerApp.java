@@ -2,6 +2,7 @@ package be.intecbrussel.testapps;
 
 import be.intecbrussel.data.CustomerDao;
 import be.intecbrussel.data.CustomerDaoImpl;
+import be.intecbrussel.entities.Customer;
 
 public class CustomerApp {
 
@@ -39,11 +40,11 @@ public class CustomerApp {
  */
 
         //#################### Deleting customer data ###################################
-/*
-        Customer customer = customerDao.readCustomers(521);
+
+        Customer customer = customerDao.readCustomers(103);
         customerDao.deleteCustomers(customer);
 
- */
+
 
         //#################### Listing all customer data ###################################
 /*
@@ -53,7 +54,7 @@ public class CustomerApp {
 
         //#################### Listing customer data by city ###################################
 
-        customerDao.listCustomersByCity("NYC");
+        //customerDao.listCustomersByCity("NYC");
 
     }
 }

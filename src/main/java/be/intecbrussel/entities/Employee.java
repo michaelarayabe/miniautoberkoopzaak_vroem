@@ -1,5 +1,7 @@
 package be.intecbrussel.entities;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -9,7 +11,9 @@ import java.util.Objects;
 public class Employee {
 
     @Id
-   // @GeneratedValue(strategy = GenerationType.TABLE)
+   // @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    //@GeneratedValue(generator = "increment")
+    //@GenericGenerator(name = "increment",strategy ="increment")
     private int employeeNumber;
     private String lastName;
     private String firstName;
