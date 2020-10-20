@@ -26,6 +26,7 @@ public class OrderDaoImpl implements OrderDao{
             entityManager.persist(order);
 
             transaction.commit();
+            System.out.println("Order created!");
         }catch (Exception e){
             e.printStackTrace();
         } finally {
@@ -46,10 +47,7 @@ public class OrderDaoImpl implements OrderDao{
 
             entityManager = emf.createEntityManager();
 
-            order = new Order();
-            order.setOrderNumber(orderNumber);
-            int id = order.getOrderNumber();
-            order = entityManager.find(Order.class, id);
+            order = entityManager.find(Order.class, orderNumber);
 
 
         } catch (Exception e){
@@ -75,7 +73,7 @@ public class OrderDaoImpl implements OrderDao{
             transaction.begin();
             entityManager.merge(order);
             transaction.commit();
-            System.out.println("Updated!!");
+            System.out.println("Order Updated!!");
         } catch (Exception e){
             e.printStackTrace();
         } finally {

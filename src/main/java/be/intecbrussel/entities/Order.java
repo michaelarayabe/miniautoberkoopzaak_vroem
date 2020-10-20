@@ -4,7 +4,6 @@ import org.hibernate.annotations.Fetch;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
@@ -19,7 +18,7 @@ public class Order {
     private String status;
     private String comments;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "customerNumber")
     private Customer customerNumber;
 
@@ -101,7 +100,7 @@ public class Order {
                 ", shippedDate=" + shippedDate +
                 ", status='" + status + '\'' +
                 ", comments='" + comments + '\'' +
-                ", customerNumber=" + customerNumber +
+                ", customerNumber=" + customerNumber.getCustomerNumber() +
                 '}';
     }
 

@@ -5,13 +5,8 @@ import be.intecbrussel.data.CustomerDaoImpl;
 import be.intecbrussel.data.OrderDao;
 import be.intecbrussel.data.OrderDaoImpl;
 import be.intecbrussel.entities.Customer;
-import be.intecbrussel.entities.Office;
 import be.intecbrussel.entities.Order;
-
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 public class OrderApp {
     public static void main(String[] args) {
@@ -19,49 +14,55 @@ public class OrderApp {
         OrderDao orderDao = new OrderDaoImpl();
 
         //#################### Creating new Order ###################################
-/*
-        Customer customer = new Customer();
-        customer.setCustomerNumber(103);
-        Order newOrder = new Order(12111,LocalDate.of(2020,01,01),LocalDate.of(2020,02,01),LocalDate.of(2020,03,03),"Shipped","no comments",customer);
-        orderDao.createOrder(newOrder);
 
- */
+        //Two options here about customers
+        //Option one: Create new Customer
+        //Option two: Refer to an existing customer
 
-        //#################### Creating new Order ###################################
+        //Using option two for this assignment
+        CustomerDao customerDao = new CustomerDaoImpl();
+        Customer customer = customerDao.readCustomers(101);
 
-        //System.out.println(orderDao.readOrder(10100));
+        //Using constructor to create a new order just for a change
+        LocalDate orderDate = LocalDate.of(2020, 2,1);
+        LocalDate requiredDate = LocalDate.of(2020,2,1);
+        LocalDate shippedDate = LocalDate.of(2020,3,3);
+
+        Order newOrder = new Order(10099,orderDate,requiredDate,shippedDate,"Shipped","no comments",customer);
+        orderDao.createOrder(newOrder); //------------------WORKS
+
+
+
+
+
+        //#################### Reading Order by order number ###################################
+
+        System.out.println(orderDao.readOrder(10100)); //------------------WORKS
 
 
         //#################### Update Order###################################
-/*
-        Order orderToBeUpdated = orderDao.readOrder(10100);
+
+        Order orderToBeUpdated = orderDao.readOrder(10099);
 
         orderToBeUpdated.setStatus("confirmed");
 
-        orderDao.updateOrder(orderToBeUpdated);
+        orderDao.updateOrder(orderToBeUpdated); //------------------WORKS
 
- */
+
+
+
 
 
 
         //#################### Delete Order ###################################
 
 
-        CustomerDao customerDao = new CustomerDaoImpl();
-        Customer customer = customerDao.readCustomers(363);
-        customerDao.deleteCustomers(customer);
 
-
-/*
-        Order orderToBeDeleted = orderDao.readOrder(10100);
-        orderDao.deleteOrder(orderToBeDeleted);
-
- */
+        Order orderToBeDeleted = orderDao.readOrder(10099);
+        orderDao.deleteOrder(orderToBeDeleted);  //------------------WORKS
 
 
     }
-
-
 
 
 }
