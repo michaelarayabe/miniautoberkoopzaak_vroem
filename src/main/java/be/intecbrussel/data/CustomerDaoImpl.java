@@ -70,9 +70,14 @@ public class CustomerDaoImpl implements CustomerDao {
             TypedQuery<Customer> query = entityManager.createQuery("select customers from Customer customers", Customer.class);
 
             for(Customer c : query.getResultList()){
-                if(c.getCustomerName().equalsIgnoreCase(customerName)){
+                if(!c.getCustomerName().equalsIgnoreCase(customerName)){
+                    System.out.println("No customer by that name");
+                    break;
+                }else if(c.getCustomerName().equalsIgnoreCase(customerName)){
                     System.out.println(c + "\n");
                 }
+
+
             }
 
         }catch (Exception e){
@@ -146,7 +151,8 @@ public class CustomerDaoImpl implements CustomerDao {
             TypedQuery<Customer> query = entityManager.createQuery("select customers from Customer customers", Customer.class);
 
             for(Customer c : query.getResultList()){
-                System.out.println(c + "\n");
+                System.out.printf("First Name: %s, Last Name: %s, City: %s \n", c.getContactFirstName(), c.getContactLastName(), c.getCity());
+
             }
 
         }catch (Exception e){
@@ -170,7 +176,7 @@ public class CustomerDaoImpl implements CustomerDao {
 
             for(Customer c : query.getResultList()){
                 if(c.getCity().equalsIgnoreCase(city)){
-                    System.out.println(c + "\n");
+                    System.out.printf("First Name: %s, Last Name: %s, City: %s \n", c.getContactFirstName(), c.getContactLastName(), c.getCity());
                 }
 
             }

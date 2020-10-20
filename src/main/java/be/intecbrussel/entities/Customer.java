@@ -1,8 +1,7 @@
 package be.intecbrussel.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.Objects;
 
 @Entity
@@ -21,12 +20,15 @@ public class Customer {
     private String state;
     private String postalCode;
     private String country;
-    private double creditLimit;
+    @ManyToOne
+    @JoinColumn(name = "salesRepEmployeeNumber")
+    private Employee salesRepEmployeeNumber;
+    private BigDecimal creditLimit;
 
     public Customer() {
     }
 
-    public Customer(int customerNumber, String customerName, String contactLastName, String contactFirstName, String phone, String addressLine1, String addressLine2, String city, String state, String postalCode, String country, double creditLimit) {
+    public Customer(int customerNumber, String customerName, String contactLastName, String contactFirstName, String phone, String addressLine1, String addressLine2, String city, String state, String postalCode, String country, Employee salesRepEmployeeNumber, BigDecimal creditLimit) {
         this.customerNumber = customerNumber;
         this.customerName = customerName;
         this.contactLastName = contactLastName;
@@ -38,6 +40,7 @@ public class Customer {
         this.state = state;
         this.postalCode = postalCode;
         this.country = country;
+        this.salesRepEmployeeNumber = salesRepEmployeeNumber;
         this.creditLimit = creditLimit;
     }
 
@@ -129,11 +132,19 @@ public class Customer {
         this.country = country;
     }
 
-    public double getCreditLimit() {
+    public Employee getSalesRepEmployeeNumber() {
+        return salesRepEmployeeNumber;
+    }
+
+    public void setSalesRepEmployeeNumber(Employee salesRepEmployeeNumber) {
+        this.salesRepEmployeeNumber = salesRepEmployeeNumber;
+    }
+
+    public BigDecimal getCreditLimit() {
         return creditLimit;
     }
 
-    public void setCreditLimit(double creditLimit) {
+    public void setCreditLimit(BigDecimal creditLimit) {
         this.creditLimit = creditLimit;
     }
 
@@ -151,6 +162,7 @@ public class Customer {
                 ", state='" + state + '\'' +
                 ", postalCode='" + postalCode + '\'' +
                 ", country='" + country + '\'' +
+                ", salesRepEmployeeNumber=" + salesRepEmployeeNumber +
                 ", creditLimit=" + creditLimit +
                 '}';
     }
@@ -161,7 +173,6 @@ public class Customer {
         if (o == null || getClass() != o.getClass()) return false;
         Customer customer = (Customer) o;
         return customerNumber == customer.customerNumber &&
-                Double.compare(customer.creditLimit, creditLimit) == 0 &&
                 Objects.equals(customerName, customer.customerName) &&
                 Objects.equals(contactLastName, customer.contactLastName) &&
                 Objects.equals(contactFirstName, customer.contactFirstName) &&
@@ -171,11 +182,13 @@ public class Customer {
                 Objects.equals(city, customer.city) &&
                 Objects.equals(state, customer.state) &&
                 Objects.equals(postalCode, customer.postalCode) &&
-                Objects.equals(country, customer.country);
+                Objects.equals(country, customer.country) &&
+                Objects.equals(salesRepEmployeeNumber, customer.salesRepEmployeeNumber) &&
+                Objects.equals(creditLimit, customer.creditLimit);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(customerNumber, customerName, contactLastName, contactFirstName, phone, addressLine1, addressLine2, city, state, postalCode, country, creditLimit);
+        return Objects.hash(customerNumber, customerName, contactLastName, contactFirstName, phone, addressLine1, addressLine2, city, state, postalCode, country, salesRepEmployeeNumber, creditLimit);
     }
 }
