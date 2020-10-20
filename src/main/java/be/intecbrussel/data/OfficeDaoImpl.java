@@ -28,6 +28,7 @@ public class OfficeDaoImpl implements OfficeDao{
             entityManager.persist(office);
 
             transaction.commit();
+            System.out.println("Office created!");
         }catch (Exception e){
             e.printStackTrace();
         } finally {

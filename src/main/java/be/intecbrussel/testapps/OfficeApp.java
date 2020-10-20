@@ -10,7 +10,7 @@ public class OfficeApp {
         OfficeDao officeDao = new OfficeDaoImpl();
 
         //#################### Creating new Office ###################################
-/*
+
         Office office = new Office();
         office.setOfficeCode("8");
         office.setAddressLine1("Leiekaai");
@@ -22,28 +22,35 @@ public class OfficeApp {
         office.setState("Tigray");
         office.setTerritory("Africa");
 
-        officeDao.createOffice(office);
+        officeDao.createOffice(office); //-----------WORKS
 
- */
+
+
+
         //#################### Read Office using office code ###################################
 
-        //System.out.println(officeDao.readOffice("1"));
+        //System.out.println(officeDao.readOffice("1")); //----------------WORKS
 
         //#################### Update Office###################################
-/*
+
         Office officeToBeUpdated = officeDao.readOffice("8");
 
         officeToBeUpdated.setCity("Mekelle");
 
-        officeDao.updateOffice(officeToBeUpdated);
+        officeDao.updateOffice(officeToBeUpdated); //----------------WORKS
 
- */
+
+
+
 
         //#################### Delete Office ###################################
 
 
         Office officeToBeDeleted = officeDao.readOffice("8");
 
-        officeDao.deleteOffice(officeToBeDeleted);
+        officeDao.deleteOffice(officeToBeDeleted); //----------------WORKS
+
+
+
     }
 }
