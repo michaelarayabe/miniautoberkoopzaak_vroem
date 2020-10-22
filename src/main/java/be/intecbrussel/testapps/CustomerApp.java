@@ -1,8 +1,8 @@
 package be.intecbrussel.testapps;
 
-import be.intecbrussel.data.CustomerDao;
-import be.intecbrussel.data.CustomerDaoImpl;
-import be.intecbrussel.data.EmployeeDaoImpl;
+import be.intecbrussel.data.dao.CustomerDao;
+import be.intecbrussel.data.impl.CustomerDaoImpl;
+import be.intecbrussel.data.impl.EmployeeDaoImpl;
 import be.intecbrussel.entities.Customer;
 import be.intecbrussel.entities.Employee;
 
@@ -20,11 +20,11 @@ public class CustomerApp {
 
         EmployeeDaoImpl employeeDao = new EmployeeDaoImpl();
         Employee employee = employeeDao.readEmployee(1056);
-        BigDecimal creditLimit = new BigDecimal("222312.00");
+        BigDecimal creditLimit = new BigDecimal("122312.00");
 
         //set all the attributes needed
         Customer customer1 = new Customer();
-        customer1.setCustomerNumber(101);
+        customer1.setCustomerNumber(102);
         customer1.setAddressLine1("Heaven");
         customer1.setCustomerName("Tola");
         customer1.setContactLastName("dfdf");
@@ -90,6 +90,8 @@ public class CustomerApp {
         //#################### Listing customer data by city ###################################
 
         customerDao.listCustomersByCity("NYC"); //----------------WORKS
+
+
 
     }
 }

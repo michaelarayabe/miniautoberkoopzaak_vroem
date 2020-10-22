@@ -1,5 +1,6 @@
-package be.intecbrussel.data;
+package be.intecbrussel.data.impl;
 
+import be.intecbrussel.data.dao.EmployeeDao;
 import be.intecbrussel.data.utils.EntityManagerFactoryProvider;
 import be.intecbrussel.entities.Employee;
 
