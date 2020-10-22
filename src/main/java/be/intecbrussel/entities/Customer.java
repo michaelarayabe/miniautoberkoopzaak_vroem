@@ -2,10 +2,11 @@ package be.intecbrussel.entities;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.Collection;
 import java.util.Objects;
 
 @Entity
-@Table(name = "customers")
+@Table(name = "customers", schema = "classicmodels")
 public class Customer {
 
     @Id
@@ -20,15 +21,15 @@ public class Customer {
     private String state;
     private String postalCode;
     private String country;
-    @ManyToOne
-    @JoinColumn(name = "salesRepEmployeeNumber")
-    private Employee salesRepEmployeeNumber;
+    private Employee salesRep;
     private BigDecimal creditLimit;
+    private Collection<Order> orders;
+    private Collection<Payment> payments;
 
     public Customer() {
     }
 
-    public Customer(int customerNumber, String customerName, String contactLastName, String contactFirstName, String phone, String addressLine1, String addressLine2, String city, String state, String postalCode, String country, Employee salesRepEmployeeNumber, BigDecimal creditLimit) {
+    public Customer(int customerNumber, String customerName, String contactLastName, String contactFirstName, String phone, String addressLine1, String addressLine2, String city, String state, String postalCode, String country, BigDecimal creditLimit) {
         this.customerNumber = customerNumber;
         this.customerName = customerName;
         this.contactLastName = contactLastName;
@@ -40,10 +41,11 @@ public class Customer {
         this.state = state;
         this.postalCode = postalCode;
         this.country = country;
-        this.salesRepEmployeeNumber = salesRepEmployeeNumber;
         this.creditLimit = creditLimit;
     }
 
+    @Id
+    @Column(name = "customerNumber", nullable = false)
     public int getCustomerNumber() {
         return customerNumber;
     }
@@ -52,6 +54,8 @@ public class Customer {
         this.customerNumber = customerNumber;
     }
 
+    @Basic
+    @Column(name = "customerName", nullable = false, length = 50)
     public String getCustomerName() {
         return customerName;
     }
@@ -60,6 +64,8 @@ public class Customer {
         this.customerName = customerName;
     }
 
+    @Basic
+    @Column(name = "contactLastName", nullable = false, length = 50)
     public String getContactLastName() {
         return contactLastName;
     }
@@ -68,6 +74,8 @@ public class Customer {
         this.contactLastName = contactLastName;
     }
 
+    @Basic
+    @Column(name = "contactFirstName", nullable = false, length = 50)
     public String getContactFirstName() {
         return contactFirstName;
     }
@@ -76,6 +84,8 @@ public class Customer {
         this.contactFirstName = contactFirstName;
     }
 
+    @Basic
+    @Column(name = "phone", nullable = false, length = 50)
     public String getPhone() {
         return phone;
     }
@@ -84,6 +94,8 @@ public class Customer {
         this.phone = phone;
     }
 
+    @Basic
+    @Column(name = "addressLine1", nullable = false, length = 50)
     public String getAddressLine1() {
         return addressLine1;
     }
@@ -92,6 +104,8 @@ public class Customer {
         this.addressLine1 = addressLine1;
     }
 
+    @Basic
+    @Column(name = "addressLine2", nullable = true, length = 50)
     public String getAddressLine2() {
         return addressLine2;
     }
@@ -100,6 +114,8 @@ public class Customer {
         this.addressLine2 = addressLine2;
     }
 
+    @Basic
+    @Column(name = "city", nullable = false, length = 50)
     public String getCity() {
         return city;
     }
@@ -108,6 +124,8 @@ public class Customer {
         this.city = city;
     }
 
+    @Basic
+    @Column(name = "state", nullable = true, length = 50)
     public String getState() {
         return state;
     }
@@ -116,6 +134,8 @@ public class Customer {
         this.state = state;
     }
 
+    @Basic
+    @Column(name = "postalCode", nullable = true, length = 15)
     public String getPostalCode() {
         return postalCode;
     }
@@ -124,6 +144,8 @@ public class Customer {
         this.postalCode = postalCode;
     }
 
+    @Basic
+    @Column(name = "country", nullable = false, length = 50)
     public String getCountry() {
         return country;
     }
@@ -132,14 +154,9 @@ public class Customer {
         this.country = country;
     }
 
-    public Employee getSalesRepEmployeeNumber() {
-        return salesRepEmployeeNumber;
-    }
 
-    public void setSalesRepEmployeeNumber(Employee salesRepEmployeeNumber) {
-        this.salesRepEmployeeNumber = salesRepEmployeeNumber;
-    }
-
+    @Basic
+    @Column(name = "creditLimit", nullable = true, precision = 2)
     public BigDecimal getCreditLimit() {
         return creditLimit;
     }
@@ -162,7 +179,6 @@ public class Customer {
                 ", state='" + state + '\'' +
                 ", postalCode='" + postalCode + '\'' +
                 ", country='" + country + '\'' +
-                ", salesRepEmployeeNumber=" + salesRepEmployeeNumber +
                 ", creditLimit=" + creditLimit +
                 '}';
     }
@@ -183,12 +199,39 @@ public class Customer {
                 Objects.equals(state, customer.state) &&
                 Objects.equals(postalCode, customer.postalCode) &&
                 Objects.equals(country, customer.country) &&
-                Objects.equals(salesRepEmployeeNumber, customer.salesRepEmployeeNumber) &&
                 Objects.equals(creditLimit, customer.creditLimit);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(customerNumber, customerName, contactLastName, contactFirstName, phone, addressLine1, addressLine2, city, state, postalCode, country, salesRepEmployeeNumber, creditLimit);
+        return Objects.hash(customerNumber, customerName, contactLastName, contactFirstName, phone, addressLine1, addressLine2, city, state, postalCode, country, creditLimit);
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "salesRepEmployeeNumber", referencedColumnName = "employeeNumber")
+    public Employee getSalesRep() {
+        return salesRep;
+    }
+
+    public void setSalesRep(Employee salesRep) {
+        this.salesRep = salesRep;
+    }
+
+    @OneToMany(mappedBy = "customer")
+    public Collection<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Collection<Order> orders) {
+        this.orders = orders;
+    }
+
+    @OneToMany(mappedBy = "customer")
+    public Collection<Payment> getPayments() {
+        return payments;
+    }
+
+    public void setPayments(Collection<Payment> payments) {
+        this.payments = payments;
     }
 }

@@ -1,19 +1,20 @@
 package be.intecbrussel.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.awt.*;
+import java.util.Collection;
 import java.util.Objects;
 
 @Entity
-@Table
+@Table(name = "productlines", schema = "classicmodels")
 public class Productline {
 
     @Id
     private String productLine;
     private String textDescription;
     private String htmlDescription;
+    private byte[] image;
+    private Collection<Product> productsByProductLine;
 
     public Productline() {
     }
@@ -24,6 +25,8 @@ public class Productline {
         this.htmlDescription = htmlDescription;
     }
 
+    @Id
+    @Column(name = "productLine", nullable = false, length = 50)
     public String getProductLine() {
         return productLine;
     }
@@ -32,6 +35,8 @@ public class Productline {
         this.productLine = productLine;
     }
 
+    @Basic
+    @Column(name = "textDescription", length = 4000)
     public String getTextDescription() {
         return textDescription;
     }
@@ -40,6 +45,8 @@ public class Productline {
         this.textDescription = textDescription;
     }
 
+    @Basic
+    @Column(name = "htmlDescription", length = -1)
     public String getHtmlDescription() {
         return htmlDescription;
     }
@@ -70,5 +77,24 @@ public class Productline {
     @Override
     public int hashCode() {
         return Objects.hash(productLine, textDescription, htmlDescription);
+    }
+
+    @Basic
+    @Column(name = "image")
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+
+    @OneToMany(mappedBy = "productline")
+    public Collection<Product> getProductsByProductLine() {
+        return productsByProductLine;
+    }
+
+    public void setProductsByProductLine(Collection<Product> productsByProductLine) {
+        this.productsByProductLine = productsByProductLine;
     }
 }

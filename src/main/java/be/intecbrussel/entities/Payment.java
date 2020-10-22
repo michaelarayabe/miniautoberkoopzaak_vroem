@@ -1,40 +1,33 @@
 package be.intecbrussel.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigDecimal;
+import java.sql.Date;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
-@Table(name = "payments")
+@Table(name = "payments", schema = "classicmodels")
 public class Payment {
 
-    @Id
-    private int customerNumber;
     private String checkNumber;
     private LocalDateTime paymentDate;
     private BigDecimal amount;
+    private Customer customer;
 
     public Payment() {
     }
 
-    public Payment(int customerNumber, String checkNumber, LocalDateTime paymentDate, BigDecimal amount) {
-        this.customerNumber = customerNumber;
+    public Payment(String checkNumber, LocalDateTime paymentDate, BigDecimal amount) {
         this.checkNumber = checkNumber;
         this.paymentDate = paymentDate;
         this.amount = amount;
     }
 
-    public int getCustomerNumber() {
-        return customerNumber;
-    }
 
-    public void setCustomerNumber(int customerNumber) {
-        this.customerNumber = customerNumber;
-    }
 
+    @Id
+    @Column(name = "checkNumber", nullable = false, length = 50)
     public String getCheckNumber() {
         return checkNumber;
     }
@@ -43,14 +36,19 @@ public class Payment {
         this.checkNumber = checkNumber;
     }
 
+    @Basic
+    @Column(name = "paymentDate", nullable = false)
     public LocalDateTime getPaymentDate() {
         return paymentDate;
     }
+
 
     public void setPaymentDate(LocalDateTime paymentDate) {
         this.paymentDate = paymentDate;
     }
 
+    @Basic
+    @Column(name = "amount", nullable = false, precision = 2)
     public BigDecimal getAmount() {
         return amount;
     }
@@ -62,7 +60,6 @@ public class Payment {
     @Override
     public String toString() {
         return "Payment{" +
-                "customerNumber=" + customerNumber +
                 ", checkNumber='" + checkNumber + '\'' +
                 ", paymentDate=" + paymentDate +
                 ", amount=" + amount +
@@ -74,7 +71,7 @@ public class Payment {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Payment payment = (Payment) o;
-        return customerNumber == payment.customerNumber &&
+        return
                 Objects.equals(checkNumber, payment.checkNumber) &&
                 Objects.equals(paymentDate, payment.paymentDate) &&
                 Objects.equals(amount, payment.amount);
@@ -82,6 +79,16 @@ public class Payment {
 
     @Override
     public int hashCode() {
-        return Objects.hash(customerNumber, checkNumber, paymentDate, amount);
+        return Objects.hash( checkNumber, paymentDate, amount);
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "customerNumber", referencedColumnName = "customerNumber", nullable = false)
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 }

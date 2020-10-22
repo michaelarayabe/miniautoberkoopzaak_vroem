@@ -20,33 +20,25 @@ public class CustomerApp {
 
         EmployeeDaoImpl employeeDao = new EmployeeDaoImpl();
         Employee employee = employeeDao.readEmployee(1056);
-        BigDecimal creditLimit = new BigDecimal("222312.00");
+        BigDecimal creditLimit = new BigDecimal("2312.00");
 
         //set all the attributes needed
         Customer customer1 = new Customer();
-        customer1.setCustomerNumber(101);
+        customer1.setCustomerNumber(99);
         customer1.setAddressLine1("Heaven");
-        customer1.setCustomerName("Tola");
-        customer1.setContactLastName("dfdf");
-        customer1.setContactFirstName("dfdfdf");
+        customer1.setCustomerName("ETola");
+        customer1.setContactLastName("Edfdf");
+        customer1.setContactFirstName("Edfdfdf");
         customer1.setPhone("1212");
-        customer1.setAddressLine2("address two");
+        customer1.setAddressLine2("Eaddress two");
         customer1.setCity("Wollo");
         customer1.setState("Vancover");
         customer1.setPostalCode("222");
         customer1.setCountry("Belgie");
-        customer1.setSalesRepEmployeeNumber(employee);
         customer1.setCreditLimit(creditLimit);
 
         //Create the customer
         customerDao.createCustomers(customer1); //----------------WORKS
-
-
-
-
-
-
-
 
         //#################### Reading Customers by customer id ###################################
 
@@ -90,6 +82,8 @@ public class CustomerApp {
         //#################### Listing customer data by city ###################################
 
         customerDao.listCustomersByCity("NYC"); //----------------WORKS
+
+
 
     }
 }

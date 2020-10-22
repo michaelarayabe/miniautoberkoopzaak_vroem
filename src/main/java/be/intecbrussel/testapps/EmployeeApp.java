@@ -17,10 +17,10 @@ public class EmployeeApp {
 
         //#################### Creating new employees ###################################
 
-        Employee employee = new Employee(2921,"AnotherLastName","AnotherFirstName","x1141","1@gmail.com","Record Officer",office, employeeDao.readEmployee(1002));
+        Employee employee = new Employee(1001, office,"AnotherLastName","AnotherFirstName","x1141","1@gmail.com","Record Officer", employeeDao.readEmployee(1002));
         employeeDao.createEmployee(employee);  // ---------------------WORKS
 
-
+/*
 
         //#################### Reading employees from employees table ###################################
 
@@ -49,7 +49,6 @@ public class EmployeeApp {
 
         employeeTobeUpdated.setJobTitle("Secratary");
         employeeTobeUpdated.setReportsTo(employeeToReportTo);
-        employeeTobeUpdated.setOfficeCode(existingOffice);
         employeeTobeUpdated.setEmail("awet@gmail.com");
         employeeTobeUpdated.setExtension("y2312");
         employeeTobeUpdated.setFirstName("Meron");
@@ -84,6 +83,8 @@ public class EmployeeApp {
         //#################### List employees by job title ###################################
 
         employeeDao.listEmployeesByJobTitle("Sales Rep"); // ---------------------WORKS
+
+ */
 
 
     }

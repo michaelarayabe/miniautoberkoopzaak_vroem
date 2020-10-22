@@ -21,7 +21,7 @@ public class OrderApp {
 
         //Using option two for this assignment
         CustomerDao customerDao = new CustomerDaoImpl();
-        Customer customer = customerDao.readCustomers(101);
+        Customer customer = customerDao.readCustomers(99);
 
         //Using constructor to create a new order just for a change
         LocalDate orderDate = LocalDate.of(2020, 2,1);
@@ -60,6 +60,8 @@ public class OrderApp {
 
         Order orderToBeDeleted = orderDao.readOrder(10099);
         orderDao.deleteOrder(orderToBeDeleted);  //------------------WORKS
+
+
 
 
     }
