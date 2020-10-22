@@ -1,8 +1,8 @@
 package be.intecbrussel.testapps;
 
-import be.intecbrussel.data.CustomerDao;
-import be.intecbrussel.data.CustomerDaoImpl;
-import be.intecbrussel.data.EmployeeDaoImpl;
+import be.intecbrussel.data.dao.CustomerDao;
+import be.intecbrussel.data.impl.CustomerDaoImpl;
+import be.intecbrussel.data.impl.EmployeeDaoImpl;
 import be.intecbrussel.entities.Customer;
 import be.intecbrussel.entities.Employee;
 
@@ -24,7 +24,7 @@ public class CustomerApp {
 
         //set all the attributes needed
         Customer customer1 = new Customer();
-        customer1.setCustomerNumber(99);
+        customer1.setCustomerNumber(98);
         customer1.setAddressLine1("Heaven");
         customer1.setCustomerName("ETola");
         customer1.setContactLastName("Edfdf");
@@ -39,6 +39,8 @@ public class CustomerApp {
 
         //Create the customer
         customerDao.createCustomers(customer1); //----------------WORKS
+
+
 
         //#################### Reading Customers by customer id ###################################
 
@@ -82,6 +84,8 @@ public class CustomerApp {
         //#################### Listing customer data by city ###################################
 
         customerDao.listCustomersByCity("NYC"); //----------------WORKS
+
+
 
 
 
