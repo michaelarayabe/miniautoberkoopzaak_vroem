@@ -1,14 +1,14 @@
-package be.intecbrussel.data;
+package be.intecbrussel.data.impl;
 
+import be.intecbrussel.data.dao.OrderDao;
 import be.intecbrussel.data.utils.EntityManagerFactoryProvider;
-import be.intecbrussel.entities.Office;
 import be.intecbrussel.entities.Order;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 
-public class OrderDaoImpl implements OrderDao{
+public class OrderDaoImpl implements OrderDao {
     EntityManagerFactory emf = EntityManagerFactoryProvider.getInstance().getEmf();
 
     @Override

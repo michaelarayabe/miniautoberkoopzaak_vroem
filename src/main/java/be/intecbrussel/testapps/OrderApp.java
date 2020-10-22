@@ -1,9 +1,9 @@
 package be.intecbrussel.testapps;
 
-import be.intecbrussel.data.CustomerDao;
-import be.intecbrussel.data.CustomerDaoImpl;
-import be.intecbrussel.data.OrderDao;
-import be.intecbrussel.data.OrderDaoImpl;
+import be.intecbrussel.data.dao.CustomerDao;
+import be.intecbrussel.data.impl.CustomerDaoImpl;
+import be.intecbrussel.data.dao.OrderDao;
+import be.intecbrussel.data.impl.OrderDaoImpl;
 import be.intecbrussel.entities.Customer;
 import be.intecbrussel.entities.Order;
 import java.time.LocalDate;

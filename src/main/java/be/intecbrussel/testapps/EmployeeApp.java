@@ -1,7 +1,7 @@
 package be.intecbrussel.testapps;
 
-import be.intecbrussel.data.EmployeeDao;
-import be.intecbrussel.data.EmployeeDaoImpl;
+import be.intecbrussel.data.dao.EmployeeDao;
+import be.intecbrussel.data.impl.EmployeeDaoImpl;
 import be.intecbrussel.entities.Employee;
 import be.intecbrussel.entities.Office;
 

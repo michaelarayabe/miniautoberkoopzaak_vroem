@@ -1,14 +1,14 @@
-package be.intecbrussel.data;
+package be.intecbrussel.data.impl;
 
+import be.intecbrussel.data.dao.OfficeDao;
 import be.intecbrussel.data.utils.EntityManagerFactoryProvider;
 import be.intecbrussel.entities.Office;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
-import javax.persistence.TypedQuery;
 
-public class OfficeDaoImpl implements OfficeDao{
+public class OfficeDaoImpl implements OfficeDao {
 
     EntityManagerFactory emf = EntityManagerFactoryProvider.getInstance().getEmf();
 

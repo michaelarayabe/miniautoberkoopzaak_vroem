@@ -1,7 +1,7 @@
 package be.intecbrussel.testapps;
 
-import be.intecbrussel.data.OfficeDao;
-import be.intecbrussel.data.OfficeDaoImpl;
+import be.intecbrussel.data.dao.OfficeDao;
+import be.intecbrussel.data.impl.OfficeDaoImpl;
 import be.intecbrussel.entities.Office;
 
 public class OfficeApp {
