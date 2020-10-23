@@ -18,7 +18,7 @@ public class PaymentApp {
 
 
         //#################### Creating payment ###################################
-/*
+
         CustomerDao customerDao = new CustomerDaoImpl();
         Customer customer = customerDao.readCustomers(103);
         BigDecimal bigD = new BigDecimal("2222");
@@ -33,15 +33,15 @@ public class PaymentApp {
 
         paymentDao.createPayment(payment); //--------------WORKS
 
- */
+
 
 
 
         //#################### Reading payment ###################################
 
-        //System.out.println(paymentDao.readPayment("HQ336336"));
+        System.out.println(paymentDao.readPayment("HQ336336"));
 
-        /*
+
         //#################### Updating payment ###################################
 
         Payment paymentToUpdate = paymentDao.readPayment("HJ618252");
@@ -50,7 +50,7 @@ public class PaymentApp {
 
         paymentDao.updatePayment(paymentToUpdate);//--------------WORKS
 
-         */
+
 
         //#################### Deleting payment ###################################
 

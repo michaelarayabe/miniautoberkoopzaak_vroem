@@ -5,14 +5,13 @@
 
     <persistence-unit name="classicmodels" transaction-type="RESOURCE_LOCAL">
 
-        <class>be.intecbrussel.entities.Category</class>
         <class>be.intecbrussel.entities.Customer</class>
         <class>be.intecbrussel.entities.Employee</class>
         <class>be.intecbrussel.entities.Office</class>
         <class>be.intecbrussel.entities.OrderDetail</class>
         <class>be.intecbrussel.entities.Order</class>
         <class>be.intecbrussel.entities.Payment</class>
-        <class>be.intecbrussel.entities.Productline</class>
+        <class>be.intecbrussel.entities.ProductLine</class>
         <class>be.intecbrussel.entities.Product</class>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>

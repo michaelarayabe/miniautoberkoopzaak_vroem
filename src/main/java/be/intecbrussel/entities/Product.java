@@ -17,7 +17,7 @@ public class Product {
     private short quantityInStock;
     private BigDecimal buyPrice;
     private BigDecimal msrp;
-    private Productline productline;
+    private ProductLine productline;
 
     public Product() {
     }
@@ -150,11 +150,11 @@ public class Product {
 
     @ManyToOne
     @JoinColumn(name = "productLine", referencedColumnName = "productLine", nullable = false)
-    public Productline getProductline() {
+    public ProductLine getProductline() {
         return productline;
     }
 
-    public void setProductline(Productline productline) {
+    public void setProductline(ProductLine productline) {
         this.productline = productline;
     }
 }

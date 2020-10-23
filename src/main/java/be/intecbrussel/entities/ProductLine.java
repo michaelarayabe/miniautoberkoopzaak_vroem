@@ -1,13 +1,12 @@
 package be.intecbrussel.entities;
 
 import javax.persistence.*;
-import java.awt.*;
 import java.util.Collection;
 import java.util.Objects;
 
 @Entity
 @Table(name = "productlines", schema = "classicmodels")
-public class Productline {
+public class ProductLine {
 
     @Id
     private String productLine;
@@ -16,10 +15,10 @@ public class Productline {
     private byte[] image;
     private Collection<Product> productsByProductLine;
 
-    public Productline() {
+    public ProductLine() {
     }
 
-    public Productline(String productLine, String textDescription, String htmlDescription) {
+    public ProductLine(String productLine, String textDescription, String htmlDescription) {
         this.productLine = productLine;
         this.textDescription = textDescription;
         this.htmlDescription = htmlDescription;
@@ -68,7 +67,7 @@ public class Productline {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Productline that = (Productline) o;
+        ProductLine that = (ProductLine) o;
         return Objects.equals(productLine, that.productLine) &&
                 Objects.equals(textDescription, that.textDescription) &&
                 Objects.equals(htmlDescription, that.htmlDescription);
