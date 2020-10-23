@@ -12,11 +12,11 @@ import javax.persistence.EntityTransaction;
 
 public class OrderDetailImpl implements OrderDetailDao {
 
+    EntityManagerFactory emf = EntityManagerFactoryProvider.getInstance().getEmf();
 
     @Override
     public void createOrderDetail(OrderDetailPK orderdetail) {
 
-        EntityManagerFactory emf = EntityManagerFactoryProvider.getInstance().getEmf();
 
 
         EntityManager entityManager = null;

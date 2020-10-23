@@ -3,6 +3,7 @@ package be.intecbrussel.entities;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -11,14 +12,14 @@ import java.util.Objects;
 public class Payment {
 
     private String checkNumber;
-    private LocalDateTime paymentDate;
+    private LocalDate paymentDate;
     private BigDecimal amount;
     private Customer customer;
 
     public Payment() {
     }
 
-    public Payment(String checkNumber, LocalDateTime paymentDate, BigDecimal amount) {
+    public Payment(String checkNumber, LocalDate paymentDate, BigDecimal amount) {
         this.checkNumber = checkNumber;
         this.paymentDate = paymentDate;
         this.amount = amount;
@@ -38,12 +39,12 @@ public class Payment {
 
     @Basic
     @Column(name = "paymentDate", nullable = false)
-    public LocalDateTime getPaymentDate() {
+    public LocalDate getPaymentDate() {
         return paymentDate;
     }
 
 
-    public void setPaymentDate(LocalDateTime paymentDate) {
+    public void setPaymentDate(LocalDate paymentDate) {
         this.paymentDate = paymentDate;
     }
 
