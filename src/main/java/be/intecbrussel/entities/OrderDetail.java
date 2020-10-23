@@ -7,7 +7,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "orderdetails", schema = "classicmodels")
 @IdClass(value = OrderDetailPK.class)
-public class Orderdetail {
+public class OrderDetail {
 
     private int quantityOrdered;
     private BigDecimal priceEach;
@@ -15,10 +15,10 @@ public class Orderdetail {
     private Order order;
     private Product product;
 
-    public Orderdetail() {
+    public OrderDetail() {
     }
 
-    public Orderdetail(int quantityOrdered, BigDecimal priceEach, short orderLineNumber) {
+    public OrderDetail(int quantityOrdered, BigDecimal priceEach, short orderLineNumber) {
         this.quantityOrdered = quantityOrdered;
         this.priceEach = priceEach;
         this.orderLineNumber = orderLineNumber;
@@ -67,7 +67,7 @@ public class Orderdetail {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Orderdetail that = (Orderdetail) o;
+        OrderDetail that = (OrderDetail) o;
         return quantityOrdered == that.quantityOrdered &&
                 orderLineNumber == that.orderLineNumber &&
                 Objects.equals(priceEach, that.priceEach);

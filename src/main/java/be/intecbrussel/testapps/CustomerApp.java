@@ -24,14 +24,14 @@ public class CustomerApp {
 
         //set all the attributes needed
         Customer customer1 = new Customer();
-        customer1.setCustomerNumber(98);
-        customer1.setAddressLine1("Heaven");
-        customer1.setCustomerName("ETola");
-        customer1.setContactLastName("Edfdf");
-        customer1.setContactFirstName("Edfdfdf");
-        customer1.setPhone("1212");
-        customer1.setAddressLine2("Eaddress two");
-        customer1.setCity("Wollo");
+        customer1.setCustomerNumber(97);
+        customer1.setAddressLine1("FHeaven");
+        customer1.setCustomerName("FETola");
+        customer1.setContactLastName("FEdfdf");
+        customer1.setContactFirstName("FEdfdfdf");
+        customer1.setPhone("F1212");
+        customer1.setAddressLine2("FEaddress two");
+        customer1.setCity("FWollo");
         customer1.setState("Vancover");
         customer1.setPostalCode("222");
         customer1.setCountry("Belgie");
@@ -84,6 +84,8 @@ public class CustomerApp {
         //#################### Listing customer data by city ###################################
 
         customerDao.listCustomersByCity("NYC"); //----------------WORKS
+
+
 
 
 

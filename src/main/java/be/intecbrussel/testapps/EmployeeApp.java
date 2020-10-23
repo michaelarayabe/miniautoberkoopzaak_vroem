@@ -17,7 +17,7 @@ public class EmployeeApp {
 
         //#################### Creating new employees ###################################
 
-        Employee employee = new Employee(1001, office,"AnotherLastName","AnotherFirstName","x1141","1@gmail.com","Record Officer", employeeDao.readEmployee(1002));
+        Employee employee = new Employee(1000, office,"AnotherLastName","AnotherFirstName","x1141","1@gmail.com","Record Officer", employeeDao.readEmployee(1002));
         employeeDao.createEmployee(employee);  // ---------------------WORKS
 
 /*

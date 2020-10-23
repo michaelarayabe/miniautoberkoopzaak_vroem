@@ -12,7 +12,7 @@ public class OfficeApp {
         //#################### Creating new Office ###################################
 
         Office office = new Office();
-        office.setOfficeCode("8");
+        office.setOfficeCode("9");
         office.setAddressLine1("Leiekaai");
         office.setCity("Addis Ababa");
         office.setAddressLine2("Groene Valley");
@@ -49,6 +49,8 @@ public class OfficeApp {
         Office officeToBeDeleted = officeDao.readOffice("8");
 
         officeDao.deleteOffice(officeToBeDeleted); //----------------WORKS
+
+
 
 
 

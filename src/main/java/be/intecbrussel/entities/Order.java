@@ -1,9 +1,6 @@
 package be.intecbrussel.entities;
 
-import org.hibernate.annotations.Fetch;
-
 import javax.persistence.*;
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Objects;
@@ -20,7 +17,7 @@ public class Order {
     private String status;
     private String comments;
 
-    private Collection<Orderdetail> orderdetails;
+    private Collection<OrderDetail> orderDetails;
     private Customer customer;
 
     public Order() {
@@ -132,12 +129,12 @@ public class Order {
     }
 
     @OneToMany(mappedBy = "order")
-    public Collection<Orderdetail> getOrderdetails() {
-        return orderdetails;
+    public Collection<OrderDetail> getOrderdetails() {
+        return orderDetails;
     }
 
-    public void setOrderdetails(Collection<Orderdetail> orderdetails) {
-        this.orderdetails = orderdetails;
+    public void setOrderdetails(Collection<OrderDetail> orderDetails) {
+        this.orderDetails = orderDetails;
     }
 
     @ManyToOne
