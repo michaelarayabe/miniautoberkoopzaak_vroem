@@ -6,7 +6,7 @@ import be.intecbrussel.entities.OrderDetailPK;
 
 public interface OrderDetailDao {
 
-    void createOrderDetail(OrderDetailPK orderdetail);
+    void createOrderDetail(OrderDetail orderdetail);
     OrderDetail readOrderDetail(OrderDetailPK orderDetailPK);
     void updateOrderDetail(OrderDetail orderDetail);
     void deleteOrderDetail(OrderDetail orderDetail);

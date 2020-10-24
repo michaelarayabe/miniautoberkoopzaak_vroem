@@ -1,35 +1,40 @@
 package be.intecbrussel.entities;
 
+import javax.persistence.Column;
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Objects;
 
 public class OrderDetailPK implements Serializable {
 
-    private Product product;
-    private Order order;
+    private String productCode;
+    private int orderNumber;
 
     public OrderDetailPK() {
     }
 
-    public OrderDetailPK(Product product, Order order) {
-        this.product = product;
-        this.order = order;
+    public OrderDetailPK(String productCode, int orderNumber) {
+        this.productCode = productCode;
+        this.orderNumber = orderNumber;
+    }
+    @Column(name = "productCode", nullable = false)
+    @Id
+    public String getProduct() {
+        return productCode;
     }
 
-    public Product getProduct() {
-        return product;
+    public void setProduct(String ourProduct) {
+        this.productCode = ourProduct;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    @Column(name = "orderNumber", nullable = false)
+    @Id
+    public int getOrderNumber() {
+        return orderNumber;
     }
 
-    public Order getOrder() {
-        return order;
-    }
-
-    public void setOrder(Order order) {
-        this.order = order;
+    public void setOrderNumber(int order) {
+        this.orderNumber = order;
     }
 
     @Override
@@ -37,12 +42,12 @@ public class OrderDetailPK implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         OrderDetailPK that = (OrderDetailPK) o;
-        return Objects.equals(product, that.product) &&
-                Objects.equals(order, that.order);
+        return orderNumber == that.orderNumber &&
+                Objects.equals(productCode, that.productCode);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(product, order);
+        return Objects.hash(productCode, orderNumber);
     }
 }

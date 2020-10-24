@@ -49,7 +49,6 @@ public class OrderDaoImpl implements OrderDao {
 
             order = entityManager.find(Order.class, orderNumber);
 
-
         } catch (Exception e){
             e.printStackTrace();
         } finally {

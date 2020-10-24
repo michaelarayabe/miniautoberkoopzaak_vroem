@@ -71,25 +71,5 @@ public class CustomerApp {
 
 
 
-
-
-
-
-        //#################### Listing all customer data ###################################
-
-        customerDao.listAllCustomers(); //----------------WORKS
-
-
-
-        //#################### Listing customer data by city ###################################
-
-        customerDao.listCustomersByCity("NYC"); //----------------WORKS
-
-
-
-
-
-
-
     }
 }

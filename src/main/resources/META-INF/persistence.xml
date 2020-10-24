@@ -9,6 +9,7 @@
         <class>be.intecbrussel.entities.Employee</class>
         <class>be.intecbrussel.entities.Office</class>
         <class>be.intecbrussel.entities.OrderDetail</class>
+        <!--<class>be.intecbrussel.entities.OrderDetailPK</class>-->
         <class>be.intecbrussel.entities.Order</class>
         <class>be.intecbrussel.entities.Payment</class>
         <class>be.intecbrussel.entities.ProductLine</class>

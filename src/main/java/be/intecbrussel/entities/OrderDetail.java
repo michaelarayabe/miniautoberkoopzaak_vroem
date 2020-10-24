@@ -1,27 +1,21 @@
 package be.intecbrussel.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
 
 @Entity
 @Table(name = "orderdetails", schema = "classicmodels")
-@IdClass(value = OrderDetailPK.class)
-public class OrderDetail {
-
+@IdClass(OrderDetailPK.class)
+public class OrderDetail{
     private int quantityOrdered;
     private BigDecimal priceEach;
     private short orderLineNumber;
-    private Order order;
+    private Order orderNumber;
     private Product product;
 
     public OrderDetail() {
-    }
-
-    public OrderDetail(int quantityOrdered, BigDecimal priceEach, short orderLineNumber) {
-        this.quantityOrdered = quantityOrdered;
-        this.priceEach = priceEach;
-        this.orderLineNumber = orderLineNumber;
     }
 
     @Basic
@@ -63,30 +57,16 @@ public class OrderDetail {
                 '}';
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        OrderDetail that = (OrderDetail) o;
-        return quantityOrdered == that.quantityOrdered &&
-                orderLineNumber == that.orderLineNumber &&
-                Objects.equals(priceEach, that.priceEach);
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(quantityOrdered, priceEach, orderLineNumber);
-    }
-
+    @Id
     @ManyToOne
     @JoinColumn(name = "orderNumber", referencedColumnName = "orderNumber", nullable = false)
-    @Id
     public Order getOrder() {
-        return order;
+        return orderNumber;
     }
 
     public void setOrder(Order order) {
-        this.order = order;
+        this.orderNumber = order;
     }
 
     @ManyToOne
@@ -99,4 +79,22 @@ public class OrderDetail {
     public void setProduct(Product product) {
         this.product = product;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        OrderDetail that = (OrderDetail) o;
+        return quantityOrdered == that.quantityOrdered &&
+                orderLineNumber == that.orderLineNumber &&
+                Objects.equals(priceEach, that.priceEach) &&
+                Objects.equals(orderNumber, that.orderNumber) &&
+                Objects.equals(product, that.product);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(quantityOrdered, priceEach, orderLineNumber, orderNumber, product);
+    }
 }
+

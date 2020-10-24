@@ -11,8 +11,4 @@ public interface EmployeeDao {
     void updateEmployee(Employee employee);
     void deleteEmployee(Employee employee);
 
-    void listAllEmployees();
-    List<Employee> listEmployeesByExtension(String extension);
-    void listEmployeesByJobTitle(String jobtitle);
-
 }

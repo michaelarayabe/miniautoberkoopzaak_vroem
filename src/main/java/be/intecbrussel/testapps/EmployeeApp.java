@@ -20,7 +20,7 @@ public class EmployeeApp {
         Employee employee = new Employee(1000, office,"AnotherLastName","AnotherFirstName","x1141","1@gmail.com","Record Officer", employeeDao.readEmployee(1002));
         employeeDao.createEmployee(employee);  // ---------------------WORKS
 
-/*
+
 
         //#################### Reading employees from employees table ###################################
 
@@ -68,23 +68,6 @@ public class EmployeeApp {
 
         employeeDao.deleteEmployee(employeeTobeDeleted); // ---------------------WORKS
 
-
-
-
-        //#################### List all employees ###################################
-
-        employeeDao.listAllEmployees(); // ---------------------WORKS
-
-        //#################### List employees by extension ###################################
-
-
-        System.out.println(employeeDao.listEmployeesByExtension("x5800")); // ---------------------WORKS
-
-        //#################### List employees by job title ###################################
-
-        employeeDao.listEmployeesByJobTitle("Sales Rep"); // ---------------------WORKS
-
- */
 
 
     }
